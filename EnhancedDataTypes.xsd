@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ebay:apis:EnhancedDataTypes" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ebl="urn:ebay:apis:eBLBaseComponents" xmlns:cc="urn:ebay:apis:CoreComponentTypes" xmlns:ns="urn:ebay:apis:EnhancedDataTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<import namespace="urn:ebay:apis:eBLBaseComponents" schemaLocation="eBLBaseComponents.xsd"/>
+	<complexType name="EnhancedCheckoutDataType">
+	</complexType>
+	<complexType name="EnhancedPaymentDataType">
+		<annotation>
+			<documentation>
+				Enhanced data for different transactions.<br/>
+			</documentation>
+		</annotation>
+		<sequence>
+			<element ref="ebl:AirlineItinerary" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						AID for Airlines
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="EnhancedPaymentInfoType">
+	</complexType>
+	<complexType name="EnhancedItemDataType">
+	</complexType>
+	<element name="EnhancedInitiateRecoupRequestDetails" type="ns:EnhancedInitiateRecoupRequestDetailsType"/>
+	<element name="EnhancedCompleteRecoupRequestDetails" type="ns:EnhancedCompleteRecoupRequestDetailsType"/>
+	<element name="EnhancedCompleteRecoupResponseDetails" type="ns:EnhancedCompleteRecoupResponseDetailsType"/>
+	<element name="EnhancedCancelRecoupRequestDetails" type="ns:EnhancedCancelRecoupRequestDetailsType"/>
+	<complexType name="EnhancedInitiateRecoupRequestDetailsType">
+	</complexType>
+	<complexType name="EnhancedCompleteRecoupRequestDetailsType">
+	</complexType>
+	<complexType name="EnhancedCompleteRecoupResponseDetailsType">
+	</complexType>
+	<complexType name="EnhancedCancelRecoupRequestDetailsType">
+	</complexType>
+	<complexType name="EnhancedPayerInfoType">
+    </complexType>
+</schema>
