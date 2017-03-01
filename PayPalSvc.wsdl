@@ -14,9 +14,9 @@
 	targetNamespace="urn:ebay:api:PayPalAPI">
 	<wsdl:types>
 		<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ebay:api:PayPalAPI" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<import namespace="urn:ebay:apis:EnhancedDataTypes" schemaLocation="EnhancedDataTypes.xsd"/>
 			<import namespace="urn:ebay:apis:CoreComponentTypes" schemaLocation="CoreComponentTypes.xsd"/>
 			<import namespace="urn:ebay:apis:eBLBaseComponents" schemaLocation="eBLBaseComponents.xsd"/>
-			<import namespace="urn:ebay:apis:EnhancedDataTypes" schemaLocation="EnhancedDataTypes.xsd"/>
 			<!-- Custom Security header element-->
 			<xs:element name="RequesterCredentials" type="ebl:CustomSecurityHeaderType"/>
 			<!-- API Request/Responses -->
