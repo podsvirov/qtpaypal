@@ -18,7 +18,9 @@ endif()
 add_executable(server
    main.cpp
    PayPalSvc.hpp
-   PayPalSvc.cpp)
+   PayPalSvc.cpp
+   PayPalAPIServerObject.hpp
+   PayPalAPIServerObject.cpp)
 
 set_target_properties(server PROPERTIES
    AUTOMOC TRUE)
