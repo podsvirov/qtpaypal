@@ -170,7 +170,7 @@ void PayPalAPIServerObject::processRequest(const KDSoapMessage &_request, KDSoap
     KDSoapHeaders headers = requestHeaders();
     QString username = headers.header("Username").value().toString();
     QString password = headers.header("Password").value().toString();
-    if (username.isEmpty() && password.isEmpty())
+    if (username.isEmpty() || password.isEmpty())
     {
         setFault("Client.Login", "Empty headers",
                  "Server.Login", tr("You must set Username and Password headers."));
