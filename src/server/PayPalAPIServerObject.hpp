@@ -59,6 +59,9 @@ public: // PayPalAPI implementation
     virtual NS__GetBalanceResponseType getBalance( const NS__GetBalanceReq& getBalanceRequest ) override;
 
     virtual NS__GetPalDetailsResponseType getPalDetails( const NS__GetPalDetailsReq& getPalDetailsRequest ) override;
+
+public: // Base reimplementation
+    void processRequest( const KDSoapMessage &_request, KDSoapMessage &_response, const QByteArray& _soapAction ) override;
 };
 
 #endif // PAYPALAPISERVEROBJECT_HPP

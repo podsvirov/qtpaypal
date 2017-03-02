@@ -17,12 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(&service, &PPAPI::getBalanceDone, this, &getBalanceDone);
     connect(&service, &PPAPI::getBalanceError, this, &getBalanceError);
-
-    // Get ballance
-    {
-        NS__GetBalanceReq req;
-        service.asyncGetBalance(req);
-    }
 }
 
 MainWindow::~MainWindow()
@@ -32,10 +26,31 @@ MainWindow::~MainWindow()
 
 void MainWindow::getBalanceDone(const NS__GetBalanceResponseType &getBalanceResponse)
 {
-    qDebug() << "Balance:" << getBalanceResponse.balance().value();
+    ui->balanceLineEdit->setText(getBalanceResponse.balance().value());
 }
 
 void MainWindow::getBalanceError(const KDSoapMessage &fault)
+{
+    ui->balanceLineEdit->clear();
+
+    processFaultMessage(fault);
+}
+
+void MainWindow::on_getBalancePushButton_clicked()
+{
+    NS__GetBalanceReq req;
+    service.asyncGetBalance(req);
+}
+
+void MainWindow::updateLoginHeader()
+{
+    KDSoapMessage login;
+    login.addArgument("Username", ui->usernameLineEdit->text());
+    login.addArgument("Password", ui->passwordLineEdit->text());
+    service.clientInterface()->setHeader("Login", login);
+}
+
+void MainWindow::processFaultMessage(const KDSoapMessage &fault)
 {
     qDebug() << "Error:" << fault.faultAsString();
 }

@@ -163,3 +163,20 @@ NS__GetPalDetailsResponseType PayPalAPIServerObject::getPalDetails(const NS__Get
     NS__GetPalDetailsResponseType response;
     return response;
 }
+
+void PayPalAPIServerObject::processRequest(const KDSoapMessage &_request, KDSoapMessage &_response, const QByteArray &_soapAction)
+{
+    // Check Login headers
+    KDSoapHeaders headers = requestHeaders();
+    QString username = headers.header("Username").value().toString();
+    QString password = headers.header("Password").value().toString();
+    if (username.isEmpty() && password.isEmpty())
+    {
+        setFault("Client.Login", "Empty headers",
+                 "Server.Login", tr("You must set Username and Password headers."));
+    }
+    else
+    {
+        PayPalAPISoapBindingServerBase::processRequest(_request, _response, _soapAction);
+    }
+}

@@ -21,6 +21,11 @@ private slots:
     void getBalanceDone( const NS__GetBalanceResponseType& getBalanceResponse );
     void getBalanceError( const KDSoapMessage& fault );
 
+    void on_getBalancePushButton_clicked();
+
+    void updateLoginHeader();
+    void processFaultMessage(const KDSoapMessage &fault);
+
 private:
     Ui::MainWindow *ui;
 
