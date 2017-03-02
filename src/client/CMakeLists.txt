@@ -15,6 +15,8 @@ if(QtPayPal_AUTOSVC)
       WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 endif()
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
 add_executable(client
    main.cpp
    PayPalSvc.hpp

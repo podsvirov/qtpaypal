@@ -15,8 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     typedef PayPalAPIInterfaceService::PayPalAPISoapBinding PPAPI;
 
-    connect(&service, &PPAPI::getBalanceDone, this, &getBalanceDone);
-    connect(&service, &PPAPI::getBalanceError, this, &getBalanceError);
+    connect(&service, &PPAPI::getBalanceDone, this, &MainWindow::getBalanceDone);
+    connect(&service, &PPAPI::getBalanceError, this, &MainWindow::getBalanceError);
 }
 
 MainWindow::~MainWindow()
