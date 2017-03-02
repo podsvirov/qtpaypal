@@ -152,8 +152,6 @@ NS__DoMobileCheckoutPaymentResponseType PayPalAPIServerObject::doMobileCheckoutP
 
 NS__GetBalanceResponseType PayPalAPIServerObject::getBalance(const NS__GetBalanceReq &getBalanceRequest)
 {
-    qDebug() << "GetBalance:" << getBalanceRequest.getBalanceRequest().returnAllCurrencies();
-
     NS__GetBalanceResponseType response;
     return response;
 }
@@ -166,14 +164,19 @@ NS__GetPalDetailsResponseType PayPalAPIServerObject::getPalDetails(const NS__Get
 
 void PayPalAPIServerObject::processRequest(const KDSoapMessage &_request, KDSoapMessage &_response, const QByteArray &_soapAction)
 {
-    // Check Login headers
+    // Check requester credentials
     KDSoapHeaders headers = requestHeaders();
-    QString username = headers.header("Username").value().toString();
-    QString password = headers.header("Password").value().toString();
+    KDSoapMessage requesterCredentialsMessage = headers.header("RequesterCredentials");
+    EBL__CustomSecurityHeaderType requesterCredentials;
+    requesterCredentials.deserialize(requesterCredentialsMessage);
+    EBL__UserIdPasswordType credentials = requesterCredentials.credentials();
+    QString username = credentials.username();
+    QString password = credentials.password();
+    // Fault if username or password is empty
     if (username.isEmpty() || password.isEmpty())
     {
-        setFault("Client.Login", "Empty headers",
-                 "Server.Login", tr("You must set Username and Password headers."));
+        setFault("Client.RequesterCredentials", "Empty RequesterCredentials",
+                 "Server.RequesterCredentials", tr("You must set RequesterCredentials header."));
     }
     else
     {

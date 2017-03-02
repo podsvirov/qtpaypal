@@ -23,7 +23,7 @@ private slots:
 
     void on_getBalancePushButton_clicked();
 
-    void updateLoginHeader();
+    void updateRequesterCredentials();
     void processFaultMessage(const KDSoapMessage &fault);
 
     void on_endpointComboBox_activated(const QString &arg1);

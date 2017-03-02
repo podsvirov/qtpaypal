@@ -42,12 +42,24 @@ void MainWindow::on_getBalancePushButton_clicked()
     service.asyncGetBalance(req);
 }
 
-void MainWindow::updateLoginHeader()
+void MainWindow::updateRequesterCredentials()
 {
-    KDSoapMessage login;
-    login.addArgument("Username", ui->usernameLineEdit->text());
-    login.addArgument("Password", ui->passwordLineEdit->text());
-    service.clientInterface()->setHeader("Login", login);
+    EBL__CustomSecurityHeaderType requesterCredentials;
+    EBL__UserIdPasswordType credentials;
+    credentials.setUsername(ui->usernameLineEdit->text());
+    credentials.setPassword(ui->passwordLineEdit->text());
+    QString signature = ui->signatureLineEdit->text();
+    if(!signature.isEmpty())
+    {
+        credentials.setSignature(signature);
+    }
+    requesterCredentials.setCredentials(credentials);
+    KDSoapValue value = requesterCredentials.serialize("RequesterCredentials");
+    KDSoapMessage message;
+    message.addArgument("RequesterCredentials", value.childValues(),
+                        QString::fromLatin1("urn:ebay:api:PayPalAPI"),
+                        QString::fromLatin1("ebl:CustomSecurityHeaderType"));
+    service.clientInterface()->setHeader("RequesterCredentials", message);
 }
 
 void MainWindow::processFaultMessage(const KDSoapMessage &fault)
