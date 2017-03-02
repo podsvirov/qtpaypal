@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,11 +20,11 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="settingsTab">
        <attribute name="title">
         <string>Settings</string>
        </attribute>
-       <layout class="QFormLayout" name="formLayout_3">
+       <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
          <widget class="QGroupBox" name="loginGroupBox">
           <property name="title">
@@ -65,9 +65,91 @@
           </layout>
          </widget>
         </item>
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="serviceGroupBox">
+          <property name="title">
+           <string>Service</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="endpointLabel">
+             <property name="text">
+              <string>Endpoint</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="endpointComboBox">
+             <item>
+              <property name="text">
+               <string>http://localhost:8081</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>https://api.paypal.com/2.0/</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>https://api.sandbox.paypal.com/2.0/</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="styleLabel">
+             <property name="text">
+              <string>Style</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="styleComboBox">
+             <item>
+              <property name="text">
+               <string>RPC</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Document</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>119</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="1">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>275</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="operationsTab">
        <attribute name="title">
         <string>Operations</string>
        </attribute>
@@ -84,7 +166,7 @@
           <item>
            <widget class="QLineEdit" name="balanceLineEdit">
             <property name="placeholderText">
-             <string>Press button to update your balance</string>
+             <string>Push button to update your balance</string>
             </property>
            </widget>
           </item>
@@ -121,7 +203,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>640</width>
      <height>20</height>
     </rect>
    </property>

@@ -26,6 +26,10 @@ private slots:
     void updateLoginHeader();
     void processFaultMessage(const KDSoapMessage &fault);
 
+    void on_endpointComboBox_activated(const QString &arg1);
+
+    void on_styleComboBox_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
 

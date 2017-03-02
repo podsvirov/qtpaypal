@@ -54,3 +54,14 @@ void MainWindow::processFaultMessage(const KDSoapMessage &fault)
 {
     qDebug() << "Error:" << fault.faultAsString();
 }
+
+void MainWindow::on_endpointComboBox_activated(const QString &arg1)
+{
+    service.clientInterface()->setEndPoint(arg1);
+}
+
+void MainWindow::on_styleComboBox_currentIndexChanged(int index)
+{
+    service.clientInterface()->setStyle(
+                index ? KDSoapClientInterface::DocumentStyle : KDSoapClientInterface::RPCStyle);
+}
