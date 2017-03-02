@@ -4,3 +4,4 @@ find_package(Qt5 CONFIG REQUIRED COMPONENTS
 find_package(KDSoap CONFIG REQUIRED)
 
 add_subdirectory(client)
+add_subdirectory(server)

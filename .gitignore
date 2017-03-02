@@ -1,3 +1,5 @@
 # Generated files
 src/client/PayPalSvc.hpp
 src/client/PayPalSvc.cpp
+src/server/PayPalSvc.hpp
+src/server/PayPalSvc.cpp
