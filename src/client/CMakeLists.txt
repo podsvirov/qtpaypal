@@ -18,10 +18,15 @@ endif()
 add_executable(client
    main.cpp
    PayPalSvc.hpp
-   PayPalSvc.cpp)
+   PayPalSvc.cpp
+   MainWindow.ui
+   MainWindow.hpp
+   MainWindow.cpp)
 
 set_target_properties(client PROPERTIES
-   AUTOMOC TRUE)
+   AUTOMOC TRUE
+   AUTOUIC TRUE)
 
 target_link_libraries(client
-   KDSoap::kdsoap)
+   KDSoap::kdsoap
+   Qt5::Widgets)

@@ -1,5 +1,7 @@
 #include "PayPalAPIServerObject.hpp"
 
+#include <QDebug>
+
 PayPalAPIServerObject::PayPalAPIServerObject()
 {
 
@@ -150,6 +152,8 @@ NS__DoMobileCheckoutPaymentResponseType PayPalAPIServerObject::doMobileCheckoutP
 
 NS__GetBalanceResponseType PayPalAPIServerObject::getBalance(const NS__GetBalanceReq &getBalanceRequest)
 {
+    qDebug() << "GetBalance:" << getBalanceRequest.getBalanceRequest().returnAllCurrencies();
+
     NS__GetBalanceResponseType response;
     return response;
 }

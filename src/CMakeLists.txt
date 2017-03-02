@@ -1,5 +1,5 @@
 find_package(Qt5 CONFIG REQUIRED COMPONENTS
-    Network)
+    Network Widgets)
 
 find_package(KDSoap CONFIG REQUIRED)
 
