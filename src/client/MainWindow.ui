@@ -104,6 +104,26 @@
                </property>
               </widget>
              </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="subjectLabel">
+               <property name="text">
+                <string>Subject</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="subjectLineEdit">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Normal</enum>
+               </property>
+               <property name="placeholderText">
+                <string>Enter your subject</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -300,6 +320,22 @@
     <hint type="sourcelabel">
      <x>203</x>
      <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>subjectLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateRequesterCredentials()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>203</x>
+     <y>215</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>

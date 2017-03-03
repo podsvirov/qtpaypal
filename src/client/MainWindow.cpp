@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->passwordLineEdit->setText(settings.value("Password").toString());
     ui->signatureLineEdit->setText(settings.value("Signature").toString());
     ui->appIdLineEdit->setText(settings.value("AppId").toString());
+    ui->subjectLineEdit->setText(settings.value("Subject").toString());
     settings.endGroup();
 
     service.setEndPoint(QLatin1String("http://localhost:8081"));
@@ -38,6 +39,7 @@ MainWindow::~MainWindow()
     settings.setValue("Password", ui->passwordLineEdit->text());
     settings.setValue("Signature", ui->signatureLineEdit->text());
     settings.setValue("AppId", ui->appIdLineEdit->text());
+    settings.setValue("Subject", ui->subjectLineEdit->text());
     settings.endGroup();
 
     delete ui;
@@ -76,6 +78,11 @@ void MainWindow::updateRequesterCredentials()
     if(!appId.isEmpty())
     {
         credentials.setAppId(appId);
+    }
+    QString subject = ui->subjectLineEdit->text();
+    if(!subject.isEmpty())
+    {
+        credentials.setSubject(subject);
     }
     requesterCredentials.setCredentials(credentials);
     KDSoapValue value = requesterCredentials.serialize("RequesterCredentials");
