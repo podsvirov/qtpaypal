@@ -47,7 +47,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::getBalanceDone(const NS__GetBalanceResponseType &getBalanceResponse)
 {
-    ui->balanceLineEdit->setText(getBalanceResponse.balance().value());
+    CC__BasicAmountType balance = getBalanceResponse.balance();
+    ui->balanceLineEdit->setText(QString("%1 %2")
+                                 .arg(balance.value())
+                                 .arg(balance.currencyID().serialize().toString()));
 }
 
 void MainWindow::getBalanceError(const KDSoapMessage &fault)
