@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "ui_MainWindow.h"
 
+#include <QSettings>
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -8,6 +9,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QSettings settings("client.ini", QSettings::IniFormat);
+
+    settings.beginGroup("RequesterCredentials");
+    ui->usernameLineEdit->setText(settings.value("Username").toString());
+    ui->passwordLineEdit->setText(settings.value("Password").toString());
+    ui->signatureLineEdit->setText(settings.value("Signature").toString());
+    ui->appIdLineEdit->setText(settings.value("AppId").toString());
+    settings.endGroup();
 
     service.setEndPoint(QLatin1String("http://localhost:8081"));
     service.setSoapVersion(KDSoapClientInterface::SOAP1_2);
@@ -21,6 +31,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    QSettings settings("client.ini", QSettings::IniFormat);
+
+    settings.beginGroup("RequesterCredentials");
+    settings.setValue("Username", ui->usernameLineEdit->text());
+    settings.setValue("Password", ui->passwordLineEdit->text());
+    settings.setValue("Signature", ui->signatureLineEdit->text());
+    settings.setValue("AppId", ui->appIdLineEdit->text());
+    settings.endGroup();
+
     delete ui;
 }
 
