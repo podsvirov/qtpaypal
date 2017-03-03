@@ -31,6 +31,9 @@ private slots:
     void on_styleComboBox_currentIndexChanged(int index);
 
 private:
+    void prepareRequest(EBL__AbstractRequestType& request);
+
+private:
     Ui::MainWindow *ui;
 
     PayPalAPIInterfaceService::PayPalAPISoapBinding service;

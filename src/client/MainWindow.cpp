@@ -60,6 +60,9 @@ void MainWindow::getBalanceError(const KDSoapMessage &fault)
 void MainWindow::on_getBalancePushButton_clicked()
 {
     NS__GetBalanceReq req;
+    NS__GetBalanceRequestType request;
+    prepareRequest(request);
+    req.setGetBalanceRequest(request);
     service.asyncGetBalance(req);
 }
 
@@ -107,4 +110,10 @@ void MainWindow::on_styleComboBox_currentIndexChanged(int index)
 {
     service.clientInterface()->setStyle(
                 index ? KDSoapClientInterface::DocumentStyle : KDSoapClientInterface::RPCStyle);
+}
+
+void MainWindow::prepareRequest(EBL__AbstractRequestType &request)
+{
+    // Version from PayPalSvc.wsdl
+    request.setVersion(QLatin1String("204.0"));
 }
