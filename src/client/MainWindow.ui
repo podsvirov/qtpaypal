@@ -154,7 +154,17 @@
                </item>
                <item>
                 <property name="text">
+                 <string>https://api-3t.paypal.com/2.0/</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
                  <string>https://api.sandbox.paypal.com/2.0/</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>https://api-3t.sandbox.paypal.com/2.0/</string>
                 </property>
                </item>
               </widget>
