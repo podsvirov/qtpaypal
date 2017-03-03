@@ -53,6 +53,11 @@ void MainWindow::updateRequesterCredentials()
     {
         credentials.setSignature(signature);
     }
+    QString appId = ui->appIdLineEdit->text();
+    if(!appId.isEmpty())
+    {
+        credentials.setAppId(appId);
+    }
     requesterCredentials.setCredentials(credentials);
     KDSoapValue value = requesterCredentials.serialize("RequesterCredentials");
     KDSoapMessage message;
