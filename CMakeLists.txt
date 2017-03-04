@@ -5,5 +5,6 @@ project(QtPayPal
     LANGUAGES CXX)
 
 option(QtPayPal_AUTOSVC "Use kdwsdl2cpp to generate service files" ON)
+option(QtPayPal_INSTALL "Use install command" ON)
 
 add_subdirectory(src)
