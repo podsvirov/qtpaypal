@@ -23,7 +23,12 @@ add_executable(server
    PayPalAPIServerObject.cpp)
 
 set_target_properties(server PROPERTIES
-   AUTOMOC TRUE)
+   AUTOMOC TRUE
+   OUTPUT_NAME qpps)
 
 target_link_libraries(server
    KDSoap::kdsoap-server)
+
+if(QtPayPal_INSTALL)
+   include("CPackLists.txt")
+endif()
