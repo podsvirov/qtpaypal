@@ -153,6 +153,15 @@ NS__DoMobileCheckoutPaymentResponseType PayPalAPIServerObject::doMobileCheckoutP
 NS__GetBalanceResponseType PayPalAPIServerObject::getBalance(const NS__GetBalanceReq &getBalanceRequest)
 {
     NS__GetBalanceResponseType response;
+
+    // Demo value
+    CC__BasicAmountType balance;
+    balance.setValue("0.02");
+    EBL__CurrencyCodeType currencyID;
+    currencyID.setType(EBL__CurrencyCodeType::USD);
+    balance.setCurrencyID(currencyID);
+    response.setBalance(balance);
+
     return response;
 }
 

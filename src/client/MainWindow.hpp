@@ -27,6 +27,7 @@ private slots:
     void processFaultMessage(const KDSoapMessage &fault);
 
     void on_endpointComboBox_activated(const QString &arg1);
+    void on_endpointComboBox_activated(int index);
 
     void on_styleComboBox_currentIndexChanged(int index);
 
