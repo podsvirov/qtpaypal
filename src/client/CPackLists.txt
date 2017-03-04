@@ -6,3 +6,6 @@ install(TARGETS PayPal
 # TODO: Remove this later
 install(FILES PayPalSvc.hpp
    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/QtPayPal)
+
+install(TARGETS client
+   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

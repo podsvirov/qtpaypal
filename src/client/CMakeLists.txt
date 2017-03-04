@@ -36,7 +36,8 @@ add_executable(client
 
 set_target_properties(client PROPERTIES
    AUTOMOC TRUE
-   AUTOUIC TRUE)
+   AUTOUIC TRUE
+   OUTPUT_NAME qppc)
 
 target_link_libraries(client
    PayPal

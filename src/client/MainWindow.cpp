@@ -10,7 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QSettings settings("client.ini", QSettings::IniFormat);
+    QSettings settings(QString("%1.ini")
+                       .arg(QCoreApplication::instance()->applicationName())
+                       , QSettings::IniFormat);
 
     settings.beginGroup("RequesterCredentials");
     ui->usernameLineEdit->setText(settings.value("Username").toString());
@@ -32,7 +34,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    QSettings settings("client.ini", QSettings::IniFormat);
+    QSettings settings(QString("%1.ini")
+                       .arg(QCoreApplication::instance()->applicationName())
+                       , QSettings::IniFormat);
 
     settings.beginGroup("RequesterCredentials");
     settings.setValue("Username", ui->usernameLineEdit->text());
