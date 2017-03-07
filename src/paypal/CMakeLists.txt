@@ -3,13 +3,13 @@ configure_file("qpaypalconfig.hpp.in" "${CMAKE_CURRENT_LIST_DIR}/qpaypalconfig.h
 set(PayPal_HEADERS
    qpaypalconfig.hpp
    qpaypalglobal.hpp
-   qclientbase.hpp)
+   qclient.hpp)
 
 set(PayPal_PRIVATE_HEADERS
-   qclientbase_p.hpp)
+   qclient_p.hpp)
 
 set(PayPal_SOURCES
-   qclientbase.cpp)
+   qclient.cpp)
 
 add_library(PayPal ${QtPayPal_LIBRARY_TYPE}
    ${PayPal_HEADERS} ${PayPal_PRIVATE_HEADERS}
