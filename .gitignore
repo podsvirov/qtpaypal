@@ -1,6 +1,7 @@
 # User files
 *.user
 # Generated files
+src/paypal/qpaypalconfig.hpp
 src/client/PayPalSvc.hpp
 src/client/PayPalSvc.cpp
 src/server/PayPalSvc.hpp

@@ -17,16 +17,16 @@ endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(PayPal
+add_library(KDPayPalClient
    PayPalSvc.hpp
    PayPalSvc.cpp)
 
-target_link_libraries(PayPal
-   KDSoap::kdsoap)
+target_link_libraries(KDPayPalClient
+   PUBLIC KDSoap::kdsoap)
 
-set_target_properties(PayPal PROPERTIES
+set_target_properties(KDPayPalClient PROPERTIES
    AUTOMOC TRUE
-   OUTPUT_NAME Qt5PayPal)
+   OUTPUT_NAME KDPayPalClient)
 
 add_executable(client
    main.cpp
@@ -40,8 +40,8 @@ set_target_properties(client PROPERTIES
    OUTPUT_NAME qppc)
 
 target_link_libraries(client
-   PayPal
-   Qt5::Widgets)
+   PRIVATE KDPayPalClient
+   PUBLIC Qt5::Widgets)
 
 if(QtPayPal_INSTALL)
    include("CPackLists.txt")
