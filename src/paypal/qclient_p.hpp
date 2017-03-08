@@ -15,6 +15,10 @@ public:
 
 protected:
     QClient *q_ptr;
+    QClient::EndpointType m_endpointType;
+
+private:
+    friend class QClient;
 };
 
 QT_PAYPAL_END_NAMESPACE

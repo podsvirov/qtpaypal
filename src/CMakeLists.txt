@@ -4,7 +4,9 @@ find_package(Qt5 CONFIG REQUIRED COMPONENTS
 get_target_property(QtPayPal_LIBRARY_TYPE Qt5::Core TYPE)
 string(REPLACE "_LIBRARY" "" QtPayPal_LIBRARY_TYPE "${QtPayPal_LIBRARY_TYPE}")
 
-find_package(KDSoap CONFIG REQUIRED)
+if(QtPayPal_CLIENT_SOAP)
+   find_package(KDSoap CONFIG REQUIRED)
+endif()
 
 if(QtPayPal_INSTALL)
    include(GNUInstallDirs)
